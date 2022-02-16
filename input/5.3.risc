@@ -1,0 +1,8 @@
+mov x1,1
+mov x2,51
+loop:
+add x0,x0,x1
+add x1,x1,1
+blt x1,x2,loop
+mov a0,x0
+end

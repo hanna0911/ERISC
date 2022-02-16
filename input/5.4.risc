@@ -1,0 +1,48 @@
+mov a0,2
+mov a1,1000000
+init:
+mov a3,0x01010101
+store a3,a0
+add a0,a0,4
+blt a0,a1,init
+mov a5,1000100
+mov a6,0x00000001
+store a6,a5
+mov a5,1000104
+mov a6,0x00000100
+store a6,a5
+mov a5,1000108
+mov a6,0x00010000
+store a6,a5
+mov a5,1000112
+mov a6,0x01000000
+store a6,a5
+mov a0,2
+mov a1,1000001
+mov a8,1000001
+loopo:
+mov a2,a0
+jal start
+loopi:
+load a3,a2
+rem a5,a2,4
+mul a5,a5,4
+add a5,a5,1000100
+load a6,a5
+rem a7,a3,a6
+div a3,a3,a6
+rem a4,a3,2
+sub a3,a3,a4
+mul a3,a3,a6
+add a3,a3,a7
+store a3,a2
+start:
+add a2,a2,a0
+blt a2,a1,loopi
+add a0,a0,1
+blt a0,a8,loopo
+mov a5,0
+mov a6,0x01010000
+store a6,a5
+draw
+end
