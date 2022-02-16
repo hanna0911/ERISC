@@ -1,4 +1,4 @@
-# Project: ERISC大作业 DEV项目
+# Project: ERISC
 
 CPP      = g++
 CC       = gcc
