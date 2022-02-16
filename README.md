@@ -26,7 +26,7 @@
 
 #### 程序运行思路梗概
 
-![程序运行过程图示](/Users/hannawang/Downloads/ERISC/程序运行过程图示.PNG)
+![程序运行过程图示](程序运行过程图示.PNG)
 
 在主函数中，首先输入函数（`input`）被调用，输入文件中的 ERISC 指令集以行为单位被存入二位字符串数组 `instruction` 中。接着全局初始化函数（`initialize`）被调用，搜索行标识函数（`find_RIDs`）被调用。至此，程序的预备工作全部结束，进入主循环 `while` （1）中。如果第 `current_line` （初始值为0）行指令是“`end`”，那么输出函数（`output`）被调用，循环打破，主函数结束；否则，`recg_line` 函数被调用。在 `recg_line` 中，相应行的ERISC指令类型被识别后对应功能的函数将被调用，`current_line` 会发生相应的变化。此时 `recg_line` 函数运行结束，程序进程返回至主函数。如果新的 `current_line` 对应行的指令不是 `end`，`recg_line` 函数将再次被调用，过程同上，直至遇到 `end` 指令跳出循环。 
 
